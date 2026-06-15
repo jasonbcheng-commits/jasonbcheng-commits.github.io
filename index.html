@@ -5,23 +5,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Jason Cheng | Electrical Engineering Portfolio</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #102a43;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 18px;
+    }
+
+    main {
+      width: min(1050px, 90%);
+      margin: 40px auto;
+    }
+
+    .project {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+
+    .project-image {
+      width: 100%;
+      max-height: 620px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-content {
+      padding: 30px;
+    }
+
+    .project-content h2 {
+      margin-top: 0;
+      color: #102a43;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e3edf7;
+      color: #102a43;
+      padding: 5px 10px;
+      margin: 3px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 11px 18px;
+      background: #1769aa;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #0f4f82;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #5b677a;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Jason Cheng</h1>
 
-  <p>
-    Electrical Engineering student at the University of California,
-    Santa Cruz.
-  </p>
+  <header>
+    <h1>Jason Cheng</h1>
+    <p>
+      Electrical Engineering Student at UC Santa Cruz
+    </p>
+  </header>
 
-  <h2>Projects</h2>
+  <main>
 
-  <ul>
-    <li>NTU Transformer Quantization Research</li>
-    <li>High-Speed Signal Integrity PCB</li>
-    <li>Audio Amplifier PCB</li>
-    <li>FPGA Arcade Game</li>
-  </ul>
+    <section class="project">
+
+      <img
+        class="project-image"
+        src="ntu-poster-preview.jpg"
+        alt="Jason Cheng presenting the Quantized BERT on CIM Accelerators research poster at National Taiwan University"
+      >
+
+      <div class="project-content">
+
+        <h2>Quantized BERT on CIM Accelerators</h2>
+
+        <p>
+          Conducted transformer quantization research at National Taiwan
+          University. Implemented quantization-aware training on a smaller
+          BERT model for INT8 inference and evaluated performance across
+          GLUE benchmark tasks.
+        </p>
+
+        <p>
+          Generated hardware-compatible model weights, biases, and
+          lookup tables for future integration with a 28 nm CMOS
+          compute-in-memory transformer accelerator.
+        </p>
+
+        <div>
+          <span class="tag">PyTorch</span>
+          <span class="tag">BERT</span>
+          <span class="tag">INT8 Quantization</span>
+          <span class="tag">Compute-in-Memory</span>
+          <span class="tag">Python</span>
+          <span class="tag">Hardware-Aware AI</span>
+        </div>
+
+        <a
+          class="button"
+          href="ntu-poster.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Research Poster
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Jason Cheng
+  </footer>
+
 </body>
 </html>
