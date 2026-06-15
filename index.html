@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,10 @@
   <title>Jason Cheng | Electrical Engineering Portfolio</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -52,13 +57,37 @@
       display: block;
     }
 
+    .layout-image {
+      object-fit: contain;
+      background: #07182c;
+      padding: 20px;
+    }
+
     .project-content {
       padding: 30px;
     }
 
     .project-content h2 {
       margin-top: 0;
+      margin-bottom: 12px;
       color: #102a43;
+      font-size: 28px;
+    }
+
+    .project-content h3 {
+      margin-top: 30px;
+      margin-bottom: 12px;
+      color: #102a43;
+      font-size: 21px;
+    }
+
+    .project-content p {
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .tags {
+      margin-top: 18px;
     }
 
     .tag {
@@ -86,10 +115,77 @@
       background: #0f4f82;
     }
 
+    .detail-image {
+      width: 100%;
+      display: block;
+      margin: 15px 0 25px;
+      border-radius: 8px;
+      border: 1px solid #d9e0e7;
+      background: #f7f9fb;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 15px;
+    }
+
+    .gallery-item {
+      margin: 0;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 330px;
+      object-fit: contain;
+      display: block;
+      background: #f7f9fb;
+      border: 1px solid #d9e0e7;
+      border-radius: 8px;
+    }
+
+    .gallery-item figcaption {
+      margin-top: 7px;
+      color: #5b677a;
+      font-size: 14px;
+      text-align: center;
+    }
+
     footer {
       text-align: center;
       padding: 30px;
       color: #5b677a;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 34px;
+      }
+
+      header {
+        padding: 45px 18px;
+      }
+
+      .project-content {
+        padding: 22px;
+      }
+
+      .project-content h2 {
+        font-size: 24px;
+      }
+
+      .image-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item img {
+        height: auto;
+      }
+
+      .project-image {
+        max-height: none;
+      }
     }
   </style>
 </head>
@@ -98,13 +194,12 @@
 
   <header>
     <h1>Jason Cheng</h1>
-    <p>
-      Electrical Engineering Student at UC Santa Cruz
-    </p>
+    <p>Electrical Engineering Student at UC Santa Cruz</p>
   </header>
 
   <main>
 
+    <!-- NTU RESEARCH PROJECT -->
     <section class="project">
 
       <img
@@ -119,18 +214,20 @@
 
         <p>
           Conducted transformer quantization research at National Taiwan
-          University. Implemented quantization-aware training on a smaller
-          BERT model for INT8 inference and evaluated performance across
-          GLUE benchmark tasks.
+          University by implementing quantization-aware training in PyTorch
+          on a compact BERT model for INT8 inference. Evaluated the model
+          across seven GLUE benchmark tasks while preserving hardware
+          efficiency.
         </p>
 
         <p>
-          Generated hardware-compatible model weights, biases, and
-          lookup tables for future integration with a 28 nm CMOS
-          compute-in-memory transformer accelerator.
+          Generated quantized weights, biases, and softmax lookup tables,
+          then exported them as JSON files formatted for future integration
+          with a 28 nm CMOS compute-in-memory transformer accelerator using
+          bit-serial data streaming and SRAM-based matrix multiplication.
         </p>
 
-        <div>
+        <div class="tags">
           <span class="tag">PyTorch</span>
           <span class="tag">BERT</span>
           <span class="tag">INT8 Quantization</span>
@@ -141,12 +238,99 @@
 
         <a
           class="button"
-          href="ntu-poster.pdf"
+          href="./ntu-poster.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
           View Research Poster
         </a>
+
+      </div>
+
+    </section>
+
+    <!-- AUDIO AMPLIFIER PROJECT -->
+    <section class="project">
+
+      <img
+        class="project-image layout-image"
+        src="audio-amplifier-pcb-layout.png"
+        alt="Cadence Allegro PCB layout for a two-channel audio amplifier"
+      >
+
+      <div class="project-content">
+
+        <h2>Two-Channel Audio Amplifier PCB</h2>
+
+        <p>
+          Designed a two-channel audio amplifier schematic in Cadence OrCAD
+          Capture using LM324 operational amplifiers for input conditioning
+          and gain control, followed by LM386 power-amplifier stages for
+          driving external speakers.
+        </p>
+
+        <p>
+          Created the PCB layout in Cadence Allegro, including component
+          placement, custom footprints, signal routing, power distribution,
+          spacing constraints, and design-rule verification. Completed DFM
+          checks and generated Gerber and drill files for fabrication.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Cadence OrCAD</span>
+          <span class="tag">Cadence Allegro</span>
+          <span class="tag">PCB Design</span>
+          <span class="tag">LM324</span>
+          <span class="tag">LM386</span>
+          <span class="tag">Gerber Files</span>
+          <span class="tag">DFM</span>
+        </div>
+
+        <h3>Schematic</h3>
+
+        <img
+          class="detail-image"
+          src="audio-amplifier-schematic.png"
+          alt="Cadence OrCAD schematic for the two-channel audio amplifier"
+        >
+
+        <h3>PCB Layout and Manufacturing Output</h3>
+
+        <div class="image-gallery">
+
+          <figure class="gallery-item">
+            <img
+              src="audio-amplifier-pcb-layout.png"
+              alt="Cadence Allegro PCB layout for the audio amplifier"
+            >
+            <figcaption>Cadence Allegro PCB layout</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="audio-amplifier-gerber.png"
+              alt="Gerber and drill output for the audio amplifier PCB"
+            >
+            <figcaption>Gerber and drill-file review</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="audio-amplifier-board-top.jpg"
+              alt="Top side of the fabricated audio amplifier PCB"
+            >
+            <figcaption>Fabricated PCB — top side</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="audio-amplifier-board-bottom.jpg"
+              alt="Bottom side of the fabricated audio amplifier PCB"
+            >
+            <figcaption>Fabricated PCB — bottom side</figcaption>
+          </figure>
+
+        </div>
 
       </div>
 
@@ -160,3 +344,4 @@
 
 </body>
 </html>
+```
